@@ -56,11 +56,20 @@ public class Assignment5Shuffle {
 
     	Assignment5Shuffle test = new Assignment5Shuffle();
 
-    	int[] actualValuesTest = { 1, 2, 3, 4, 5, 6, 7, 8 };
+    	// int[] actualValuesTest = { 1, 2, 3, 4, 5, 6, 7, 8 };
+
+        int N = 256000; // Input size; subject to change
+        int cards[] = new int[N];
+
+        Random random = new Random();
+        
+        for (int i = 0; i < N; i++) {
+            cards[i] = random.nextInt(9);
+        }
 
     	long startTime = System.currentTimeMillis();
 
-    	Float[] associatedValuesTest = test.generateRandomAssociatedValues(actualValuesTest);
+    	Float[] associatedValuesTest = test.generateRandomAssociatedValues(cards);
     	test.shuffleBasedOnAssociatedValues(actualValuesTest, associatedValuesTest);
 
     	long endTime = System.currentTimeMillis();
